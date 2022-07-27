@@ -32,11 +32,18 @@ import org.tensorflow.lite.task.vision.detector.Detection
 class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
 
     private var results: List<Detection> = LinkedList<Detection>()
+
+    private var pointPaint = Paint()
+
     private var boxPaint = Paint()
     private var textBackgroundPaint = Paint()
     private var textPaint = Paint()
 
     private var scaleFactor: Float = 1f
+
+    private var Width_image: Float = 1f
+    private var Height_image: Float = 1f
+    private var Height_image_offset: Float = 1f
 
     private var bounds = Rect()
 
@@ -64,6 +71,10 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
         boxPaint.color = ContextCompat.getColor(context!!, R.color.bounding_box_color)
         boxPaint.strokeWidth = 8F
         boxPaint.style = Paint.Style.STROKE
+
+        pointPaint.color = Color.RED
+        pointPaint.style = Paint.Style.FILL
+        pointPaint.textSize = 50f
     }
 
     override fun draw(canvas: Canvas) {
@@ -77,6 +88,26 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
             val left = boundingBox.left * scaleFactor
             val right = boundingBox.right * scaleFactor
 
+            val midX = (left + right) / 2f
+            val midY = (top + bottom) / 2f
+
+
+
+
+            println("CENTRO:==================")
+            println("Punto X: $midX")
+            println("Punto Y: $midY")
+
+            println("Centro Pantalla:==================")
+            println("Pantalla X/2: $Width_image")
+            println("Pantalla Y/2: $Height_image")
+            println("=========================")
+            
+            // VARIABLES PARA CONTROL ===============================================
+            canvas.drawCircle(midX, midY, 4F, boxPaint)
+            canvas.drawCircle(Width_image, Height_image, 5F, pointPaint)
+            // VARIABLES PARA CONTROL ===============================================
+
             // Draw bounding box around detected objects
             val drawableRect = RectF(left, top, right, bottom)
             canvas.drawRect(drawableRect, boxPaint)
@@ -85,6 +116,10 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
             val drawableText =
                 result.categories[0].label + " " +
                         String.format("%.2f", result.categories[0].score)
+
+
+
+
 
             // Draw rect behind display text
             textBackgroundPaint.getTextBounds(drawableText, 0, drawableText.length, bounds)
@@ -113,6 +148,8 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
         // PreviewView is in FILL_START mode. So we need to scale up the bounding box to match with
         // the size that the captured images will be displayed.
         scaleFactor = max(width * 1f / imageWidth, height * 1f / imageHeight)
+        Width_image = (imageWidth/2f)*scaleFactor
+        Height_image = (imageHeight/2f)*scaleFactor - 100
     }
 
     companion object {

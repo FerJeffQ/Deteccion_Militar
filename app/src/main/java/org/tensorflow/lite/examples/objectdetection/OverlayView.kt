@@ -17,17 +17,17 @@
 package org.tensorflow.lite.examples.objectdetection
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.Rect
-import android.graphics.RectF
+import android.graphics.*
+import android.os.AsyncTask
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
-import java.util.LinkedList
-import kotlin.math.max
 import org.tensorflow.lite.task.vision.detector.Detection
+import java.net.Socket
+import java.util.*
+import kotlin.math.max
+
 
 class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
 
@@ -39,6 +39,10 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
     private var scaleFactor: Float = 1f
 
     private var bounds = Rect()
+
+
+
+
 
     init {
         initPaints()
@@ -64,6 +68,7 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
         boxPaint.color = ContextCompat.getColor(context!!, R.color.bounding_box_color)
         boxPaint.strokeWidth = 8F
         boxPaint.style = Paint.Style.STROKE
+
     }
 
     override fun draw(canvas: Canvas) {
@@ -77,6 +82,25 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
             val left = boundingBox.left * scaleFactor
             val right = boundingBox.right * scaleFactor
 
+            val msg= top.toString()+","+bottom.toString()+","+left.toString()+","+right.toString()
+            //socketConnection().sendData(msg)
+            socketConnection().sendDataOpeningSocket(msg)
+
+            /*Thread(Runnable {
+            try {
+
+
+                    Log.i("enviando socket:","va a enviar")
+                    val client = Socket("192.168.1.13",21567)
+                    Log.i("enviando socket:","se conectó")
+                    client.getOutputStream().write(msg.toByteArray())
+                    Log.i("enviando socket:","envió")
+
+
+            }catch (e: Exception){
+                Log.e("socket",e.toString())
+            }
+            }).start()*/
             // Draw bounding box around detected objects
             val drawableRect = RectF(left, top, right, bottom)
             canvas.drawRect(drawableRect, boxPaint)
@@ -118,4 +142,8 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
     companion object {
         private const val BOUNDING_RECT_TEXT_PADDING = 8
     }
+
+
 }
+
+

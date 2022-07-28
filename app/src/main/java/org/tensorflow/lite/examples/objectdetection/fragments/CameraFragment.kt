@@ -17,6 +17,9 @@ package org.tensorflow.lite.examples.objectdetection.fragments
 
 
 //librerias volumen button y viewToast
+
+//librerias de zoom
+import android.R.attr.bitmap
 import android.annotation.SuppressLint
 import android.content.res.Configuration
 import android.graphics.Bitmap
@@ -35,13 +38,12 @@ import androidx.navigation.Navigation
 import org.tensorflow.lite.examples.objectdetection.ObjectDetectorHelper
 import org.tensorflow.lite.examples.objectdetection.R
 import org.tensorflow.lite.examples.objectdetection.databinding.FragmentCameraBinding
+import org.tensorflow.lite.examples.objectdetection.socketConnection
 import org.tensorflow.lite.task.vision.detector.Detection
+import java.io.ByteArrayOutputStream
 import java.util.*
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
-
-//librerias de zoom
-import androidx.camera.core.CameraControl
 
 
 class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener  {
@@ -298,6 +300,7 @@ class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener  {
                         }
 
                         detectObjects(image)
+
                     }
                 }
 
@@ -327,7 +330,12 @@ class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener  {
 
         val imageRotation = image.imageInfo.rotationDegrees
         // Pass Bitmap and rotation to the object detector helper for processing and detection
+        val imgbyte=bitmapBuffer
         objectDetectorHelper.detect(bitmapBuffer, imageRotation)
+        val stream = ByteArrayOutputStream()
+        imgbyte.compress(Bitmap.CompressFormat.JPEG, 80, stream)
+        val byteArray: ByteArray = stream.toByteArray();
+        //socketConnection().sendByteArrayOpeningSocket(byteArray);
     }
 
 

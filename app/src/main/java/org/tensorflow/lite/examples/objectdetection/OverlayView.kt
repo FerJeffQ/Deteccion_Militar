@@ -24,7 +24,6 @@ import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
 import org.tensorflow.lite.task.vision.detector.Detection
-import java.net.Socket
 import java.util.*
 import kotlin.math.max
 
@@ -46,7 +45,8 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
     private var Height_image_offset: Float = 1f
 
     private var bounds = Rect()
-
+    var sock = socketConnection()
+    var dataToSocket = "NO_DATA"
 
 
 
@@ -54,6 +54,7 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
     init {
         initPaints()
     }
+
 
     fun clear() {
         textPaint.reset()
@@ -106,15 +107,23 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
             println("Pantalla X/2: $Width_image")
             println("Pantalla Y/2: $Height_image")
             println("=========================")
-            
+
             // VARIABLES PARA CONTROL ===============================================
             canvas.drawCircle(midX, midY, 4F, boxPaint)
             canvas.drawCircle(Width_image, Height_image, 5F, pointPaint)
             // VARIABLES PARA CONTROL ===============================================
 
-            val msg= top.toString()+","+bottom.toString()+","+left.toString()+","+right.toString()
-            //socketConnection().sendData(msg)
-            socketConnection().sendDataOpeningSocket(msg)
+            //val msg= top.toString()+","+bottom.toString()+","+left.toString()+","+right.toString()
+            //enviando centro de pantalla y centro de objetivo
+            if (sock.isConnected) {
+                val msg =
+                    midX.toString() + "," + midY.toString() + "," + Width_image.toString() + "," + Height_image.toString()
+                sock.sendData(msg)
+            }else{
+                sock.connect()
+            }
+
+
 
             /*Thread(Runnable {
             try {

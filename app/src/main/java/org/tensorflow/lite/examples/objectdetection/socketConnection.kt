@@ -11,12 +11,58 @@ import java.net.SocketAddress
 
 class socketConnection {
 
-    var isConnected=false
-    var host = "192.168.1.14"
+    var isConnected = false
+    var host = "192.168.1.10"
     var port = 4000
-    public final var mSocket= Socket();
+    var mSocket = Socket();
     val inetAddress: InetAddress = InetAddress.getByName(host)
     val socketAddress: SocketAddress = InetSocketAddress(inetAddress, port)
+
+
+
+    constructor(){
+        connect()
+    }
+
+    fun connect (){
+        Thread(Runnable {
+            try {
+                Log.i("socket","connecting...")
+                //mSocket.connect(socketAddress,20000)
+                mSocket= Socket(host,port);
+                isConnected=true
+                Log.i("socket","connected")
+
+            } catch (e: NetworkOnMainThreadException) {
+                isConnected=false
+                Log.e("sockCons",e.toString())
+            } catch (e: Exception){
+                isConnected=false
+                Log.e("sockConst",e.toString())
+            }
+        }).start()
+    }
+
+    fun sendData (dataTest: String){
+        Thread(Runnable {
+            try {
+                //Log.i("socket","connected")
+                Log.i("socket","sendind data:" + dataTest.toString())
+                mSocket.getOutputStream().write(dataTest.toByteArray())
+                Log.i("socket","data sent")
+
+            } catch (e: NetworkOnMainThreadException) {
+                isConnected=false
+                Log.e("socket",e.toString())
+            } catch (e: Exception){
+                isConnected=false
+                Log.e("socketAll",e.toString())
+                connect()
+            }
+        }).start()
+
+    }
+
 
 
 
@@ -33,6 +79,8 @@ class socketConnection {
 
             } catch (e: NetworkOnMainThreadException) {
                 Log.e("socket",e.toString())
+            } catch (e: Exception){
+                Log.e("socketAll",e.toString())
             }
         }).start()
     }
@@ -82,33 +130,6 @@ class socketConnection {
         return mSocket
     }
 
-    @Synchronized
-    fun sendData(data: String) {
-        var dataex="hola soy android"
-        try {
-            if (mSocket.isConnected){
-            mSocket.getOutputStream().write(dataex.toByteArray())
-            }else{
-                Log.e("socket sendind...","socket haven't connected yet")
-                //mSocket.connect(socketAddress,20000)
-                try {
-                    Log.e("socket sendind...","reconecting")
-                    //mSocket.getOutputStream().write(data.toByteArray())
-                    setSocket();
-                    mSocket.getOutputStream().write(dataex.toByteArray())
-                } catch (e: NetworkOnMainThreadException) {
-                    Log.e("socket reconecting...",e.toString())
-                }catch (e: Exception) {
-                    Log.e("socket reconecting.ex",e.toString())
-                }
-            }
-        } catch (e: NetworkOnMainThreadException) {
-            Log.e("socket sendind...",e.toString())
-        }catch (e: Exception) {
-            Log.e("socket reconecting.ex",e.toString())
-        }
-
-    }
 
     @Synchronized
     fun closeConnection() {

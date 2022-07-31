@@ -68,6 +68,7 @@ class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener  {
     private var cameraControl: CameraControl? = null
     private var linearZoom = 0f
 
+
     /** Blocking camera operations are performed using this executor */
     private lateinit var cameraExecutor: ExecutorService
 
@@ -125,6 +126,7 @@ class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener  {
 
 
     private fun initBottomSheetControls() {
+
         // #aplasto el boton +
         fragmentCameraBinding.bottomSheetLayout.button.setOnClickListener {
             if (linearZoom <= 0.9) {
@@ -336,6 +338,29 @@ class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener  {
         imgbyte.compress(Bitmap.CompressFormat.JPEG, 80, stream)
         val byteArray: ByteArray = stream.toByteArray();
         //socketConnection().sendByteArrayOpeningSocket(byteArray);
+
+        val area = ObjectDetectorHelper.area_cuadro
+        val militar = ObjectDetectorHelper.hay_militar
+
+        println("Militar:-------------${militar}")
+        // PENDIENTE VERIFICAR EL AREA DE DESEADA !!!!!!!
+        if(area < 30000 && militar){
+
+            linearZoom += 0.1f
+            cameraControl?.setLinearZoom(linearZoom)
+        }
+        if(area > 60000 && militar){
+
+            linearZoom-=0.1f
+            if(linearZoom<0.0f){
+                linearZoom = 0.0f
+            }
+            cameraControl?.setLinearZoom(linearZoom)
+        }
+        if(!militar){
+            cameraControl?.setLinearZoom(0.0f)
+        }
+
     }
 
 

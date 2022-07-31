@@ -26,7 +26,7 @@ import androidx.core.content.ContextCompat
 import org.tensorflow.lite.task.vision.detector.Detection
 import java.util.*
 import kotlin.math.max
-
+import org.tensorflow.lite.examples.objectdetection.ObjectDetectorHelper
 
 class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
 
@@ -97,7 +97,9 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
             val midY = (top + bottom) / 2f
 
 
+            val area = ObjectDetectorHelper.area_cuadro
 
+            println("AREA DE LA DETECCION: ${area}-----------------------------------")
 
             println("CENTRO:==================")
             println("Punto X: $midX")
@@ -181,7 +183,7 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
         // the size that the captured images will be displayed.
         scaleFactor = max(width * 1f / imageWidth, height * 1f / imageHeight)
         Width_image = (imageWidth/2f)*scaleFactor
-        Height_image = (imageHeight/2f)*scaleFactor - 100
+        Height_image = (imageHeight/2f)*scaleFactor - 160
     }
 
     companion object {

@@ -468,9 +468,9 @@ class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener  {
         }
 
         // aqui esto actualizando las los valores de latitud y longitud ----------------------------------
-        if(contador_frames == 100)
+        if(contador_frames == 20)
         {
-            (activity as MainActivity).getCurrentLocation()
+            (activity as MainActivity).getCurrentLocation() //actualizar la localizacion
 
             //AQUI ESTAN LAS VARIABLES DE LATITUD Y LONGITUD
             println("Esta el latitud:${MainActivity.latitud_1}-----------") //ojo tipo Doble

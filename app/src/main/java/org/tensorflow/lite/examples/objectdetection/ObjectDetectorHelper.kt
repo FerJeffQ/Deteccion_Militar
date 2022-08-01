@@ -161,7 +161,7 @@ class ObjectDetectorHelper(
              }
 
             if(results.size > 0){
-                if(cont_militar  > 4){
+                if(cont_militar  > 5){
 
                     hay_militar = true //hay militar
                     cont_militar = 0
@@ -171,7 +171,7 @@ class ObjectDetectorHelper(
             }else{
                 cont_No_militar += 1
                 println("NO HAY MILITAR !!!!!!!!!!!!!!!!${cont_No_militar}")
-                if(hay_militar == true && cont_No_militar > 4){
+                if(hay_militar == true && cont_No_militar > 10){
                     hay_militar = false
                     cont_No_militar = 0
                     cont_militar = 0
@@ -207,6 +207,7 @@ class ObjectDetectorHelper(
         var cont_militar :Int = 0
         var cont_No_militar :Int = 0
         var area_cuadro :Float = 0f
+        val contador_de_zoom:Int = 0
         const val DELEGATE_CPU = 0
         const val DELEGATE_GPU = 1
         const val DELEGATE_NNAPI = 2

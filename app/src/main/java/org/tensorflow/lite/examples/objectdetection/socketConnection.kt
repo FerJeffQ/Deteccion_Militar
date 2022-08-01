@@ -12,7 +12,7 @@ import java.net.SocketAddress
 class socketConnection {
 
     var isConnected = false
-    var host = "192.168.1.10"
+    var host = "192.168.1.8"
     var port = 4000
     var mSocket = Socket();
     val inetAddress: InetAddress = InetAddress.getByName(host)

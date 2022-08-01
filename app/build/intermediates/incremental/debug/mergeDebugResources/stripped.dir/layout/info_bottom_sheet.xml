@@ -39,27 +39,23 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="+" />
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="-" />
 
             <TextView
                 android:id="@+id/inference_time_val"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:gravity="end"
+                android:layout_weight="1"
                 android:text="0ms"
                 android:textColor="@color/bottom_sheet_text_color"
                 android:textSize="@dimen/bottom_sheet_text_size" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Conectar Red ..."
+                android:textColor="#DF1616" />
 
         </LinearLayout>
 

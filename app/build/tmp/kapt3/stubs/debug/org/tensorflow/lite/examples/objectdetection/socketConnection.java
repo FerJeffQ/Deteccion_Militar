@@ -6,7 +6,7 @@ import java.lang.System;
 public final class socketConnection {
     private boolean isConnected = false;
     @org.jetbrains.annotations.NotNull()
-    private java.lang.String host = "192.168.1.10";
+    private java.lang.String host = "192.168.1.8";
     private int port = 4000;
     @org.jetbrains.annotations.NotNull()
     private java.net.Socket mSocket;

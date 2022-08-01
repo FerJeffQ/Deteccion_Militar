@@ -121,8 +121,12 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
                 val msg =
                     midX.toString() + "," + midY.toString() + "," + Width_image.toString() + "," + Height_image.toString()
                 sock.sendData(msg)
+
+                conectado = true
+
             }else{
                 sock.connect()
+                conectado = false
             }
 
 
@@ -184,10 +188,14 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
         scaleFactor = max(width * 1f / imageWidth, height * 1f / imageHeight)
         Width_image = (imageWidth/2f)*scaleFactor
         Height_image = (imageHeight/2f)*scaleFactor - 160
+
+
     }
 
     companion object {
         private const val BOUNDING_RECT_TEXT_PADDING = 8
+
+        var conectado: Boolean = false
     }
 
 

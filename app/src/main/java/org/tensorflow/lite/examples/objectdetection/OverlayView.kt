@@ -18,9 +18,7 @@ package org.tensorflow.lite.examples.objectdetection
 
 import android.content.Context
 import android.graphics.*
-import android.os.AsyncTask
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
 import org.tensorflow.lite.task.vision.detector.Detection
@@ -47,12 +45,18 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
     private var bounds = Rect()
     var sock = socketConnection()
     var dataToSocket = "NO_DATA"
+    var imageB64send: String = "";
+    var sendOnce=0
 
+
+    val militar_detectado: Boolean = false
+    var contador_verificacion: Int = 0
 
 
 
     init {
         initPaints()
+
     }
 
 
@@ -86,6 +90,11 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
         super.draw(canvas)
 
         for (result in results) {
+
+
+
+
+
             val boundingBox = result.boundingBox
 
             val top = boundingBox.top * scaleFactor
@@ -115,12 +124,19 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
 
             //val msg= top.toString()+","+bottom.toString()+","+left.toString()+","+right.toString()
             //enviando centro de pantalla y centro de objetivo
+
+
+
             if (sock.isConnected) {
+
                 val msg =
-                    midX.toString() + "," + midY.toString() + "," + Width_image.toString() + "," + Height_image.toString()
+                    midX.toString() + "," + midY.toString() + ","+ Width_image.toString() + ","+ Height_image.toString()+";"
+                //sock.sendData(msg)
                 sock.sendData(msg)
+                //sendOnce=false
             }else{
                 sock.connect()
+
             }
 
 
@@ -174,9 +190,10 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
       detectionResults: MutableList<Detection>,
       imageHeight: Int,
       imageWidth: Int,
+      imgBase64:  String
     ) {
         results = detectionResults
-
+        imageB64send = imgBase64
         // PreviewView is in FILL_START mode. So we need to scale up the bounding box to match with
         // the size that the captured images will be displayed.
         scaleFactor = max(width * 1f / imageWidth, height * 1f / imageHeight)

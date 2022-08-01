@@ -19,11 +19,12 @@ package org.tensorflow.lite.examples.objectdetection.fragments
 //librerias volumen button y viewToast
 
 //librerias de zoom
-import android.R.attr.bitmap
+
 import android.annotation.SuppressLint
 import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.util.Base64
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -38,12 +39,17 @@ import androidx.navigation.Navigation
 import org.tensorflow.lite.examples.objectdetection.ObjectDetectorHelper
 import org.tensorflow.lite.examples.objectdetection.R
 import org.tensorflow.lite.examples.objectdetection.databinding.FragmentCameraBinding
-import org.tensorflow.lite.examples.objectdetection.socketConnection
 import org.tensorflow.lite.task.vision.detector.Detection
-import java.io.ByteArrayOutputStream
+import java.io.*
+import java.net.HttpURLConnection
+import java.net.URL
 import java.util.*
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
+import org.json.JSONObject
+
+
+
 
 
 class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener  {
@@ -62,11 +68,18 @@ class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener  {
     //private var camera: Camera? = null
     private var cameraProvider: ProcessCameraProvider? = null
 
-
+    var byteArray: ByteArray = "".toByteArray();
 
     //variables para el zoom
     private var cameraControl: CameraControl? = null
     private var linearZoom = 0f
+
+    //val byteArray: ByteArray = []
+    var contador_verificacion: Int = 0
+    var imgBase64: String=""
+    var FramesToSendImage=10
+    var cont=0
+    var url="http://192.168.1.11:80/image"
 
     /** Blocking camera operations are performed using this executor */
     private lateinit var cameraExecutor: ExecutorService
@@ -91,6 +104,45 @@ class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener  {
         cameraExecutor.shutdown()
     }
 
+    fun senhhtp(url:String, msg:String){
+        //val urlString: String = params.get(0) // URL to call
+        Log.i("http","entra")
+        val data: String = "hola" //data to post
+
+        var out: OutputStream? = null
+        Thread(Runnable {
+        try {
+            var  url: URL = URL(url)
+            var  conn: HttpURLConnection = url.openConnection() as HttpURLConnection
+            conn.setRequestMethod("POST")
+            conn.setRequestProperty("Content-Type", "application/json;charset=UTF-8")
+            conn.setRequestProperty("Accept", "application/json")
+            conn.setDoOutput(true)
+            conn.setDoInput(true)
+
+            var  jsonParam: JSONObject = JSONObject()
+            jsonParam.put("img", msg)
+
+            //Log.i("JSON", jsonParam.toString())
+            var  os: DataOutputStream = DataOutputStream(conn.getOutputStream())
+            //os.writeBytes(URLEncoder.encode(jsonParam.toString(), "UTF-8"));
+            //os.writeBytes(URLEncoder.encode(jsonParam.toString(), "UTF-8"));
+            os.writeBytes(jsonParam.toString())
+
+            os.flush()
+            os.close()
+
+            Log.i("STATUS", java.lang.String.valueOf(conn.getResponseCode()))
+            Log.i("MSG", conn.getResponseMessage())
+
+            conn.disconnect()
+        } catch (e: java.lang.Exception) {
+            println(e.message)
+        } catch (e: Exception){
+            println(e.message)
+        }
+        }).start()
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -101,6 +153,13 @@ class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener  {
         return fragmentCameraBinding.root
     }
 
+    fun zoom(){
+        linearZoom = 0.2f
+    }
+
+    fun Nozoom(){
+        linearZoom = 0.0f
+    }
     @SuppressLint("MissingPermission")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -334,7 +393,15 @@ class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener  {
         objectDetectorHelper.detect(bitmapBuffer, imageRotation)
         val stream = ByteArrayOutputStream()
         imgbyte.compress(Bitmap.CompressFormat.JPEG, 80, stream)
-        val byteArray: ByteArray = stream.toByteArray();
+        byteArray = stream.toByteArray();
+        imgBase64 = Base64.encodeToString(byteArray, Base64.DEFAULT)
+        //post("http://192.168.1.8:8080", data = mapOf("key" to imgBase64))
+        cont++
+        if(cont>FramesToSendImage) {
+            senhhtp(url, imgBase64)
+            cont=0
+        }
+        //Log.i("image: ",imgBase64)
         //socketConnection().sendByteArrayOpeningSocket(byteArray);
     }
 
@@ -350,7 +417,8 @@ class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener  {
         results: MutableList<Detection>?,
         inferenceTime: Long,
         imageHeight: Int,
-        imageWidth: Int
+        imageWidth: Int,
+        //bitmapByte:  ByteArray
     ) {
         activity?.runOnUiThread {
 
@@ -361,7 +429,9 @@ class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener  {
             fragmentCameraBinding.overlay.setResults(
                 results ?: LinkedList<Detection>(),
                 imageHeight,
-                imageWidth
+                imageWidth,
+                imgBase64
+
             )
 
 

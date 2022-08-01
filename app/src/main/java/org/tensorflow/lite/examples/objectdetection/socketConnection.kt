@@ -12,7 +12,7 @@ import java.net.SocketAddress
 class socketConnection {
 
     var isConnected = false
-    var host = "192.168.1.10"
+    var host = "192.168.1.11"
     var port = 4000
     var mSocket = Socket();
     val inetAddress: InetAddress = InetAddress.getByName(host)
@@ -23,6 +23,8 @@ class socketConnection {
     constructor(){
         connect()
     }
+
+
 
     fun connect (){
         Thread(Runnable {
@@ -47,8 +49,33 @@ class socketConnection {
         Thread(Runnable {
             try {
                 //Log.i("socket","connected")
-                Log.i("socket","sendind data:" + dataTest.toString())
+
+                //Log.i("socket","sendind data:" + dataTest.toString())
                 mSocket.getOutputStream().write(dataTest.toByteArray())
+                mSocket.getOutputStream().flush()
+                //mSocket.getOutputStream().write("\\n".toByteArray())
+                Log.i("socket","data sent")
+
+            } catch (e: NetworkOnMainThreadException) {
+                isConnected=false
+                Log.e("socket",e.toString())
+            } catch (e: Exception){
+                isConnected=false
+                Log.e("socketAll",e.toString())
+                connect()
+            }
+        }).start()
+
+    }
+
+    fun sendImageByteArray (imgByteArray: ByteArray){
+        Thread(Runnable {
+            try {
+                //Log.i("socket","connected")
+
+                //Log.i("socket","sendind data:" + dataTest.toString())
+                mSocket.getOutputStream().write("IMAGE;".toByteArray()+imgByteArray)
+                //mSocket.getOutputStream().write("\\n".toByteArray())
                 Log.i("socket","data sent")
 
             } catch (e: NetworkOnMainThreadException) {

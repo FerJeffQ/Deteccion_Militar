@@ -1,6 +1,9 @@
-/.gradle/**
-/app/build/**
-
-*.bin
-*.lock
-app/build/kotlin/compileDebugKotlin/caches-jvm/lookups/counters.tab
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+.externalNativeBuild

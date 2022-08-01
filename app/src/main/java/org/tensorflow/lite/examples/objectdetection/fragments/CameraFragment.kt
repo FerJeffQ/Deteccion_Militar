@@ -23,6 +23,7 @@ package org.tensorflow.lite.examples.objectdetection.fragments
 import android.annotation.SuppressLint
 import android.content.res.Configuration
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Base64
 import android.util.Log
@@ -36,7 +37,9 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+
 import org.tensorflow.lite.examples.objectdetection.ObjectDetectorHelper
+import org.tensorflow.lite.examples.objectdetection.OverlayView
 import org.tensorflow.lite.examples.objectdetection.R
 import org.tensorflow.lite.examples.objectdetection.databinding.FragmentCameraBinding
 import org.tensorflow.lite.task.vision.detector.Detection
@@ -80,6 +83,11 @@ class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener  {
     var FramesToSendImage=10
     var cont=0
     var url="http://192.168.1.11:80/image"
+    private var contador_zoom_1 = 0
+
+    //para GPS
+    //private lateinit var fusedLocationProvider: FusedLocationProviderClient
+
 
     /** Blocking camera operations are performed using this executor */
     private lateinit var cameraExecutor: ExecutorService
@@ -89,8 +97,10 @@ class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener  {
         // Make sure that all permissions are still present, since the
         // user could have removed them while the app was in paused state.
         if (!PermissionsFragment.hasPermissions(requireContext())) {
+
             Navigation.findNavController(requireActivity(), R.id.fragment_container)
                 .navigate(CameraFragmentDirections.actionCameraToPermissions())
+
         }
 
 
@@ -178,29 +188,30 @@ class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener  {
         }
 
         // Attach listeners to UI control widgets
-        initBottomSheetControls()
+        //initBottomSheetControls()
 
     }
 
 
-    private fun initBottomSheetControls() {
-        // #aplasto el boton +
-        fragmentCameraBinding.bottomSheetLayout.button.setOnClickListener {
-            if (linearZoom <= 0.9) {
-                linearZoom += 0.1f
-            }
-            cameraControl?.setLinearZoom(linearZoom)
-            println("esta subiendo ")
-        }
-        // #aplasto el boton -
-        fragmentCameraBinding.bottomSheetLayout.button2.setOnClickListener {
-            if (linearZoom >= 0.1) {
-                linearZoom -= 0.1f
-            }
-            cameraControl?.setLinearZoom(linearZoom)
-            println("esta bajando")
-        }
-    }
+//    private fun initBottomSheetControls() {
+//
+//        // #aplasto el boton +
+//        fragmentCameraBinding.bottomSheetLayout.button.setOnClickListener {
+//            if (linearZoom <= 0.9) {
+//                linearZoom += 0.1f
+//            }
+//            cameraControl?.setLinearZoom(linearZoom)
+//            println("esta subiendo ")
+//        }
+//        // #aplasto el boton -
+//        fragmentCameraBinding.bottomSheetLayout.button2.setOnClickListener {
+//            if (linearZoom >= 0.1) {
+//                linearZoom -= 0.1f
+//            }
+//            cameraControl?.setLinearZoom(linearZoom)
+//            println("esta bajando")
+//        }
+//    }
 
 
 //    private fun initBottomSheetControls() {
@@ -403,6 +414,58 @@ class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener  {
         }
         //Log.i("image: ",imgBase64)
         //socketConnection().sendByteArrayOpeningSocket(byteArray);
+
+        val area = ObjectDetectorHelper.area_cuadro
+        val militar = ObjectDetectorHelper.hay_militar
+
+
+        println("Militar:-------------${militar}")
+        // PENDIENTE VERIFICAR EL AREA DE DESEADA !!!!!!!
+
+        contador_zoom_1 += 1
+        //println("Contador de zoom:${contador_zoom_1}")
+
+//        if(area > 10000 && area <  30000 && militar){
+//            cameraControl?.setLinearZoom(0.3f)
+//        }
+//        //se vuelve loco hay que comentar
+//        if(area > 45000 && area <  55000 && militar){
+//            cameraControl?.setLinearZoom(0.2f)
+//        }
+//
+//
+//        if(area > 85000  && militar){
+//            cameraControl?.setLinearZoom(0.0f)
+//        }
+
+
+//
+        if(area < 23000 && militar){
+            if(contador_zoom_1 > 20){
+                linearZoom += 0.2f
+                cameraControl?.setLinearZoom(linearZoom)
+
+                contador_zoom_1 = 0
+            }
+        }
+
+        if(area > 81000 && militar){
+            if(contador_zoom_1 > 20){
+                linearZoom -= 0.2f
+
+                if(linearZoom < 0.0f){
+                    linearZoom = 0.0f
+                }
+                cameraControl?.setLinearZoom(linearZoom)
+
+                contador_zoom_1 = 0
+            }
+        }
+
+        if(!militar){
+            linearZoom = 0.0f
+            cameraControl?.setLinearZoom(linearZoom)
+        }
     }
 
 
@@ -434,6 +497,13 @@ class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener  {
 
             )
 
+            if(OverlayView.conectado){
+                fragmentCameraBinding.bottomSheetLayout.textView4.text = "Conectado "
+                fragmentCameraBinding.bottomSheetLayout.textView4.setTextColor(Color.BLUE)
+            }else{
+                fragmentCameraBinding.bottomSheetLayout.textView4.text = "Conectarse a la Red ....."
+                fragmentCameraBinding.bottomSheetLayout.textView4.setTextColor(Color.RED)
+            }
 
             // Force a redraw
             fragmentCameraBinding.overlay.invalidate()

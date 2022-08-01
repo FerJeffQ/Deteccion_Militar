@@ -27,6 +27,9 @@ import org.tensorflow.lite.task.core.BaseOptions
 import org.tensorflow.lite.task.vision.detector.Detection
 import org.tensorflow.lite.task.vision.detector.ObjectDetector
 
+import androidx.camera.lifecycle.ProcessCameraProvider
+import kotlin.math.max
+
 class ObjectDetectorHelper(
     var threshold: Float = 0.5f,
     var numThreads: Int = 4,
@@ -41,9 +44,12 @@ class ObjectDetectorHelper(
     // will not change, a lazy val would be preferable.
     private var objectDetector: ObjectDetector? = null
 
+
+
     init {
         setupObjectDetector()
     }
+
 
     fun clearObjectDetector() {
         objectDetector = null
@@ -89,7 +95,7 @@ class ObjectDetectorHelper(
         val modelName = "model_fp16.tflite"
 
 
-
+        
 
 //            when (currentModel) {
 //                MODEL_MOBILENETV1 -> "mobilenetv1.tflite"
@@ -131,12 +137,57 @@ class ObjectDetectorHelper(
         val tensorImage = imageProcessor.process(TensorImage.fromBitmap(image))
 
         val results = objectDetector?.detect(tensorImage)
+
+
+        //println("El area es :${area_cuadro}")
+
+        //Identificar si hay un militar --------------------------------------------
+        if (results != null) {
+            //verifiquemos el area de la deteccion
+
+
+            for(resultado in results){
+                val boundingBox = resultado.boundingBox
+
+                val top = boundingBox.top
+                val bottom = boundingBox.bottom
+                val left = boundingBox.left
+                val right = boundingBox.right
+
+                val x = right - left
+                val y = bottom - top
+
+                area_cuadro = x*y
+             }
+
+            if(results.size > 0){
+                if(cont_militar  > 5){
+
+                    hay_militar = true //hay militar
+                    cont_militar = 0
+                    cont_No_militar = 0
+                }
+                cont_militar += 1
+            }else{
+                cont_No_militar += 1
+                println("NO HAY MILITAR !!!!!!!!!!!!!!!!${cont_No_militar}")
+                if(hay_militar == true && cont_No_militar > 10){
+                    hay_militar = false
+                    cont_No_militar = 0
+                    cont_militar = 0
+                }
+            }
+        }
+
         inferenceTime = SystemClock.uptimeMillis() - inferenceTime
+
+
         objectDetectorListener?.onResults(
             results,
             inferenceTime,
             tensorImage.height,
             tensorImage.width)
+
 
 
     }
@@ -152,6 +203,11 @@ class ObjectDetectorHelper(
     }
 
     companion object {
+        var hay_militar : Boolean = false
+        var cont_militar :Int = 0
+        var cont_No_militar :Int = 0
+        var area_cuadro :Float = 0f
+        val contador_de_zoom:Int = 0
         const val DELEGATE_CPU = 0
         const val DELEGATE_GPU = 1
         const val DELEGATE_NNAPI = 2

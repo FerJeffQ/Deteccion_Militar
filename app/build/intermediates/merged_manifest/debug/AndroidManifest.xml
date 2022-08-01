@@ -31,7 +31,9 @@
     <uses-feature android:name="android.hardware.camera" />
 
     <!-- Declare permissions -->
+
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -43,7 +45,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:taskAffinity="" >
+        android:taskAffinity=""
+        android:testOnly="true" >
         <activity
             android:name="org.tensorflow.lite.examples.objectdetection.MainActivity"
             android:clearTaskOnLaunch="true"

@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:17:1-67:12
-INJECTED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:17:1-67:12
-INJECTED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:17:1-67:12
-INJECTED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:17:1-67:12
+ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:17:1-68:12
+INJECTED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:17:1-68:12
+INJECTED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:17:1-68:12
+INJECTED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:17:1-68:12
 MERGED from [androidx.databinding:databinding-adapters:7.2.1] C:\Users\ferje\.gradle\caches\transforms-3\56476ab5e9742eaeed0c76c1a0ec385c\transformed\databinding-adapters-7.2.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.databinding:databinding-ktx:7.2.1] C:\Users\ferje\.gradle\caches\transforms-3\569b0f6ba23981e89cbbf65e4f71dd69\transformed\jetified-databinding-ktx-7.2.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.databinding:databinding-runtime:7.2.1] C:\Users\ferje\.gradle\caches\transforms-3\bf14203bf2cd27b348ed836da77a5926\transformed\databinding-runtime-7.2.1\AndroidManifest.xml:17:1-24:12
@@ -74,16 +74,16 @@ MERGED from [org.tensorflow:tensorflow-lite-task-base:0.4.0] C:\Users\ferje\.gra
 MERGED from [org.tensorflow:tensorflow-lite-support-api:0.4.0] C:\Users\ferje\.gradle\caches\transforms-3\20f53feb28910c53ce72e126e2cfc5f2\transformed\jetified-tensorflow-lite-support-api-0.4.0\AndroidManifest.xml:2:1-5:12
 MERGED from [org.tensorflow:tensorflow-lite-api:2.8.0] C:\Users\ferje\.gradle\caches\transforms-3\4bd052e0cefd47176a17ab56c9a86a88\transformed\jetified-tensorflow-lite-api-2.8.0\AndroidManifest.xml:2:1-12:12
 MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\ferje\.gradle\caches\transforms-3\bfc6488ea6f9686fd467d2112bc36fa8\transformed\jetified-image-1.0.0-beta1\AndroidManifest.xml:2:1-9:12
-INJECTED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:17:1-67:12
-INJECTED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:17:1-67:12
-INJECTED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:17:1-67:12
+INJECTED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:17:1-68:12
+INJECTED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:17:1-68:12
+INJECTED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:17:1-68:12
 	package
 		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:21:5-59
 		INJECTED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:17:1-67:12
+		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:17:1-68:12
 		INJECTED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:20:5-51
@@ -91,7 +91,7 @@ INJECTED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\sr
 		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:19:5-61
 	android:versionCode
 		INJECTED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:17:1-67:12
+		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:17:1-68:12
 		INJECTED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:18:5-63
@@ -111,12 +111,8 @@ uses-permission#android.permission.INTERNET
 ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:32:5-67
 	android:name
 		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:32:22-64
-uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:33:5-78
-	android:name
-		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:33:22-76
 application
-ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:35:5-65:19
+ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:36:5-66:19
 MERGED from [androidx.window:window:1.0.0-alpha09] C:\Users\ferje\.gradle\caches\transforms-3\4095502d61db606f6fcaa1b0a47cfbce\transformed\jetified-window-1.0.0-alpha09\AndroidManifest.xml:24:5-31:19
 MERGED from [androidx.window:window:1.0.0-alpha09] C:\Users\ferje\.gradle\caches\transforms-3\4095502d61db606f6fcaa1b0a47cfbce\transformed\jetified-window-1.0.0-alpha09\AndroidManifest.xml:24:5-31:19
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\ferje\.gradle\caches\transforms-3\809b399a9f4daf01a602bc6ee8f231e2\transformed\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
@@ -146,53 +142,53 @@ MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\ferje\.gradle\c
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.6.0] C:\Users\ferje\.gradle\caches\transforms-3\59927c1728a4126c0f570fa2ce3c1acb\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
 	android:label
-		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:38:9-41
+		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:39:9-41
 	tools:ignore
-		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:41:9-35
+		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:42:9-35
 	android:roundIcon
-		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:37:9-54
+		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:38:9-54
 	android:icon
-		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:36:9-43
+		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:37:9-43
 	android:allowBackup
-		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:39:9-35
+		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:40:9-35
 	android:taskAffinity
-		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:40:9-32
+		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:41:9-32
 activity#org.tensorflow.lite.examples.objectdetection.MainActivity
-ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:43:9-63:20
+ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:44:9-64:20
 	android:clearTaskOnLaunch
-		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:45:13-45
+		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:46:13-45
 	android:exported
-		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:47:13-36
+		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:48:13-36
 	android:resizeableActivity
-		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:50:13-46
+		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:51:13-46
 	android:rotationAnimation
-		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:49:13-49
+		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:50:13-49
 	android:configChanges
-		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:51:13-91
+		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:52:13-91
 	tools:targetApi
-		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:52:13-32
+		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:53:13-32
 	android:icon
-		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:48:13-47
+		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:49:13-47
 	android:theme
-		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:46:13-44
+		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:47:13-44
 	android:name
-		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:44:13-41
+		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:45:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:55:13-58:29
+ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:56:13-59:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:56:17-69
+ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:57:17-69
 	android:name
-		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:56:25-66
+		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:57:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:57:17-77
+ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:58:17-77
 	android:name
-		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:57:27-74
+		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:58:27-74
 meta-data#android.notch_support
-ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:61:13-83
+ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:62:13-83
 	android:value
-		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:61:61-81
+		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:62:61-81
 	android:name
-		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:61:24-60
+		ADDED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:62:24-60
 uses-sdk
 INJECTED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml
@@ -378,11 +374,11 @@ ADDED from [androidx.camera:camera-camera2:1.1.0-beta03] C:\Users\ferje\.gradle\
 	android:name
 		ADDED from [androidx.camera:camera-camera2:1.1.0-beta03] C:\Users\ferje\.gradle\caches\transforms-3\98f20d26f7a4b82649919521e14de0f4\transformed\jetified-camera-camera2-1.1.0-beta03\AndroidManifest.xml:33:17-103
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-IMPLIED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:17:1-67:12 reason: tensorflow_lite_support.acceleration.configuration has a targetSdkVersion < 4
+IMPLIED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:17:1-68:12 reason: tensorflow_lite_support.acceleration.configuration has a targetSdkVersion < 4
 uses-permission#android.permission.READ_PHONE_STATE
-IMPLIED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:17:1-67:12 reason: tensorflow_lite_support.acceleration.configuration has a targetSdkVersion < 4
+IMPLIED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:17:1-68:12 reason: tensorflow_lite_support.acceleration.configuration has a targetSdkVersion < 4
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:17:1-67:12 reason: tensorflow_lite_support.acceleration.configuration requested WRITE_EXTERNAL_STORAGE
+IMPLIED from C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:17:1-68:12 reason: tensorflow_lite_support.acceleration.configuration requested WRITE_EXTERNAL_STORAGE
 provider#androidx.lifecycle.ProcessLifecycleOwnerInitializer
 ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\ferje\.gradle\caches\transforms-3\3dd09a77c7ec60b8b3e274d7b1987b8f\transformed\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:25:9-29:43
 	android:authorities

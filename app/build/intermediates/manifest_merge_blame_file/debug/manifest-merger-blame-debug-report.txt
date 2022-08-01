@@ -44,108 +44,105 @@
 36    <uses-permission android:name="android.permission.INTERNET" />
 36-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:32:5-67
 36-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:32:22-64
-37    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-37-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:33:5-78
-37-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:33:22-76
-38    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-39    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-40    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-41
-42    <application
-42-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:35:5-65:19
-43        android:allowBackup="true"
-43-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:39:9-35
-44        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-44-->[androidx.core:core:1.6.0] C:\Users\ferje\.gradle\caches\transforms-3\59927c1728a4126c0f570fa2ce3c1acb\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
-45        android:debuggable="true"
-46        android:icon="@mipmap/ic_launcher"
-46-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:36:9-43
-47        android:label="@string/app_name"
-47-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:38:9-41
-48        android:roundIcon="@mipmap/ic_launcher_round"
-48-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:37:9-54
-49        android:taskAffinity=""
-49-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:40:9-32
-50        android:testOnly="true" >
-51        <activity
-51-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:43:9-63:20
-52            android:name="org.tensorflow.lite.examples.objectdetection.MainActivity"
-52-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:44:13-41
-53            android:clearTaskOnLaunch="true"
-53-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:45:13-45
-54            android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize"
-54-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:51:13-91
-55            android:exported="true"
-55-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:47:13-36
-56            android:icon="@mipmap/ic_launcher"
-56-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:48:13-47
-57            android:resizeableActivity="true"
-57-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:50:13-46
-58            android:rotationAnimation="seamless"
-58-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:49:13-49
-59            android:theme="@style/AppTheme" >
-59-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:46:13-44
-60
-61            <!-- Main app intent filter -->
-62            <intent-filter>
-62-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:55:13-58:29
-63                <action android:name="android.intent.action.MAIN" />
-63-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:56:17-69
-63-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:56:25-66
-64
-65                <category android:name="android.intent.category.LAUNCHER" />
-65-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:57:17-77
-65-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:57:27-74
-66            </intent-filter>
-67
-68            <!-- Declare notch support -->
-69            <meta-data
-69-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:61:13-83
-70                android:name="android.notch_support"
-70-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:61:24-60
-71                android:value="true" />
-71-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:61:61-81
-72        </activity>
-73
-74        <uses-library
-74-->[androidx.window:window:1.0.0-alpha09] C:\Users\ferje\.gradle\caches\transforms-3\4095502d61db606f6fcaa1b0a47cfbce\transformed\jetified-window-1.0.0-alpha09\AndroidManifest.xml:25:9-27:40
-75            android:name="androidx.window.extensions"
-75-->[androidx.window:window:1.0.0-alpha09] C:\Users\ferje\.gradle\caches\transforms-3\4095502d61db606f6fcaa1b0a47cfbce\transformed\jetified-window-1.0.0-alpha09\AndroidManifest.xml:26:13-54
-76            android:required="false" />
-76-->[androidx.window:window:1.0.0-alpha09] C:\Users\ferje\.gradle\caches\transforms-3\4095502d61db606f6fcaa1b0a47cfbce\transformed\jetified-window-1.0.0-alpha09\AndroidManifest.xml:27:13-37
-77        <uses-library
-77-->[androidx.window:window:1.0.0-alpha09] C:\Users\ferje\.gradle\caches\transforms-3\4095502d61db606f6fcaa1b0a47cfbce\transformed\jetified-window-1.0.0-alpha09\AndroidManifest.xml:28:9-30:40
-78            android:name="androidx.window.sidecar"
-78-->[androidx.window:window:1.0.0-alpha09] C:\Users\ferje\.gradle\caches\transforms-3\4095502d61db606f6fcaa1b0a47cfbce\transformed\jetified-window-1.0.0-alpha09\AndroidManifest.xml:29:13-51
-79            android:required="false" />
-79-->[androidx.window:window:1.0.0-alpha09] C:\Users\ferje\.gradle\caches\transforms-3\4095502d61db606f6fcaa1b0a47cfbce\transformed\jetified-window-1.0.0-alpha09\AndroidManifest.xml:30:13-37
-80
-81        <service
-81-->[androidx.camera:camera-camera2:1.1.0-beta03] C:\Users\ferje\.gradle\caches\transforms-3\98f20d26f7a4b82649919521e14de0f4\transformed\jetified-camera-camera2-1.1.0-beta03\AndroidManifest.xml:26:9-35:19
-82            android:name="androidx.camera.core.impl.MetadataHolderService"
-82-->[androidx.camera:camera-camera2:1.1.0-beta03] C:\Users\ferje\.gradle\caches\transforms-3\98f20d26f7a4b82649919521e14de0f4\transformed\jetified-camera-camera2-1.1.0-beta03\AndroidManifest.xml:27:13-75
-83            android:enabled="false"
-83-->[androidx.camera:camera-camera2:1.1.0-beta03] C:\Users\ferje\.gradle\caches\transforms-3\98f20d26f7a4b82649919521e14de0f4\transformed\jetified-camera-camera2-1.1.0-beta03\AndroidManifest.xml:28:13-36
-84            android:exported="false" >
-84-->[androidx.camera:camera-camera2:1.1.0-beta03] C:\Users\ferje\.gradle\caches\transforms-3\98f20d26f7a4b82649919521e14de0f4\transformed\jetified-camera-camera2-1.1.0-beta03\AndroidManifest.xml:29:13-37
-85            <meta-data
-85-->[androidx.camera:camera-camera2:1.1.0-beta03] C:\Users\ferje\.gradle\caches\transforms-3\98f20d26f7a4b82649919521e14de0f4\transformed\jetified-camera-camera2-1.1.0-beta03\AndroidManifest.xml:32:13-34:89
-86                android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER"
-86-->[androidx.camera:camera-camera2:1.1.0-beta03] C:\Users\ferje\.gradle\caches\transforms-3\98f20d26f7a4b82649919521e14de0f4\transformed\jetified-camera-camera2-1.1.0-beta03\AndroidManifest.xml:33:17-103
-87                android:value="androidx.camera.camera2.Camera2Config$DefaultProvider" />
-87-->[androidx.camera:camera-camera2:1.1.0-beta03] C:\Users\ferje\.gradle\caches\transforms-3\98f20d26f7a4b82649919521e14de0f4\transformed\jetified-camera-camera2-1.1.0-beta03\AndroidManifest.xml:34:17-86
-88        </service>
-89
-90        <provider
-90-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\ferje\.gradle\caches\transforms-3\3dd09a77c7ec60b8b3e274d7b1987b8f\transformed\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:25:9-29:43
-91            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-91-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\ferje\.gradle\caches\transforms-3\3dd09a77c7ec60b8b3e274d7b1987b8f\transformed\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:26:13-79
-92            android:authorities="org.tensorflow.lite.examples.objectdetection.lifecycle-process"
-92-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\ferje\.gradle\caches\transforms-3\3dd09a77c7ec60b8b3e274d7b1987b8f\transformed\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:27:13-69
-93            android:exported="false"
-93-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\ferje\.gradle\caches\transforms-3\3dd09a77c7ec60b8b3e274d7b1987b8f\transformed\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:28:13-37
-94            android:multiprocess="true" />
-94-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\ferje\.gradle\caches\transforms-3\3dd09a77c7ec60b8b3e274d7b1987b8f\transformed\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:29:13-40
-95    </application>
-96
-97</manifest>
+37    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+38    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+39    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+40
+41    <application
+41-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:36:5-66:19
+42        android:allowBackup="true"
+42-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:40:9-35
+43        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+43-->[androidx.core:core:1.6.0] C:\Users\ferje\.gradle\caches\transforms-3\59927c1728a4126c0f570fa2ce3c1acb\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
+44        android:debuggable="true"
+45        android:icon="@mipmap/ic_launcher"
+45-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:37:9-43
+46        android:label="@string/app_name"
+46-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:39:9-41
+47        android:roundIcon="@mipmap/ic_launcher_round"
+47-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:38:9-54
+48        android:taskAffinity=""
+48-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:41:9-32
+49        android:testOnly="true" >
+50        <activity
+50-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:44:9-64:20
+51            android:name="org.tensorflow.lite.examples.objectdetection.MainActivity"
+51-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:45:13-41
+52            android:clearTaskOnLaunch="true"
+52-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:46:13-45
+53            android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize"
+53-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:52:13-91
+54            android:exported="true"
+54-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:48:13-36
+55            android:icon="@mipmap/ic_launcher"
+55-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:49:13-47
+56            android:resizeableActivity="true"
+56-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:51:13-46
+57            android:rotationAnimation="seamless"
+57-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:50:13-49
+58            android:theme="@style/AppTheme" >
+58-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:47:13-44
+59
+60            <!-- Main app intent filter -->
+61            <intent-filter>
+61-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:56:13-59:29
+62                <action android:name="android.intent.action.MAIN" />
+62-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:57:17-69
+62-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:57:25-66
+63
+64                <category android:name="android.intent.category.LAUNCHER" />
+64-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:58:17-77
+64-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:58:27-74
+65            </intent-filter>
+66
+67            <!-- Declare notch support -->
+68            <meta-data
+68-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:62:13-83
+69                android:name="android.notch_support"
+69-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:62:24-60
+70                android:value="true" />
+70-->C:\Users\ferje\OneDrive\Documentos\GitHub\Deteccion_Militar\app\src\main\AndroidManifest.xml:62:61-81
+71        </activity>
+72
+73        <uses-library
+73-->[androidx.window:window:1.0.0-alpha09] C:\Users\ferje\.gradle\caches\transforms-3\4095502d61db606f6fcaa1b0a47cfbce\transformed\jetified-window-1.0.0-alpha09\AndroidManifest.xml:25:9-27:40
+74            android:name="androidx.window.extensions"
+74-->[androidx.window:window:1.0.0-alpha09] C:\Users\ferje\.gradle\caches\transforms-3\4095502d61db606f6fcaa1b0a47cfbce\transformed\jetified-window-1.0.0-alpha09\AndroidManifest.xml:26:13-54
+75            android:required="false" />
+75-->[androidx.window:window:1.0.0-alpha09] C:\Users\ferje\.gradle\caches\transforms-3\4095502d61db606f6fcaa1b0a47cfbce\transformed\jetified-window-1.0.0-alpha09\AndroidManifest.xml:27:13-37
+76        <uses-library
+76-->[androidx.window:window:1.0.0-alpha09] C:\Users\ferje\.gradle\caches\transforms-3\4095502d61db606f6fcaa1b0a47cfbce\transformed\jetified-window-1.0.0-alpha09\AndroidManifest.xml:28:9-30:40
+77            android:name="androidx.window.sidecar"
+77-->[androidx.window:window:1.0.0-alpha09] C:\Users\ferje\.gradle\caches\transforms-3\4095502d61db606f6fcaa1b0a47cfbce\transformed\jetified-window-1.0.0-alpha09\AndroidManifest.xml:29:13-51
+78            android:required="false" />
+78-->[androidx.window:window:1.0.0-alpha09] C:\Users\ferje\.gradle\caches\transforms-3\4095502d61db606f6fcaa1b0a47cfbce\transformed\jetified-window-1.0.0-alpha09\AndroidManifest.xml:30:13-37
+79
+80        <service
+80-->[androidx.camera:camera-camera2:1.1.0-beta03] C:\Users\ferje\.gradle\caches\transforms-3\98f20d26f7a4b82649919521e14de0f4\transformed\jetified-camera-camera2-1.1.0-beta03\AndroidManifest.xml:26:9-35:19
+81            android:name="androidx.camera.core.impl.MetadataHolderService"
+81-->[androidx.camera:camera-camera2:1.1.0-beta03] C:\Users\ferje\.gradle\caches\transforms-3\98f20d26f7a4b82649919521e14de0f4\transformed\jetified-camera-camera2-1.1.0-beta03\AndroidManifest.xml:27:13-75
+82            android:enabled="false"
+82-->[androidx.camera:camera-camera2:1.1.0-beta03] C:\Users\ferje\.gradle\caches\transforms-3\98f20d26f7a4b82649919521e14de0f4\transformed\jetified-camera-camera2-1.1.0-beta03\AndroidManifest.xml:28:13-36
+83            android:exported="false" >
+83-->[androidx.camera:camera-camera2:1.1.0-beta03] C:\Users\ferje\.gradle\caches\transforms-3\98f20d26f7a4b82649919521e14de0f4\transformed\jetified-camera-camera2-1.1.0-beta03\AndroidManifest.xml:29:13-37
+84            <meta-data
+84-->[androidx.camera:camera-camera2:1.1.0-beta03] C:\Users\ferje\.gradle\caches\transforms-3\98f20d26f7a4b82649919521e14de0f4\transformed\jetified-camera-camera2-1.1.0-beta03\AndroidManifest.xml:32:13-34:89
+85                android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER"
+85-->[androidx.camera:camera-camera2:1.1.0-beta03] C:\Users\ferje\.gradle\caches\transforms-3\98f20d26f7a4b82649919521e14de0f4\transformed\jetified-camera-camera2-1.1.0-beta03\AndroidManifest.xml:33:17-103
+86                android:value="androidx.camera.camera2.Camera2Config$DefaultProvider" />
+86-->[androidx.camera:camera-camera2:1.1.0-beta03] C:\Users\ferje\.gradle\caches\transforms-3\98f20d26f7a4b82649919521e14de0f4\transformed\jetified-camera-camera2-1.1.0-beta03\AndroidManifest.xml:34:17-86
+87        </service>
+88
+89        <provider
+89-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\ferje\.gradle\caches\transforms-3\3dd09a77c7ec60b8b3e274d7b1987b8f\transformed\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:25:9-29:43
+90            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+90-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\ferje\.gradle\caches\transforms-3\3dd09a77c7ec60b8b3e274d7b1987b8f\transformed\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:26:13-79
+91            android:authorities="org.tensorflow.lite.examples.objectdetection.lifecycle-process"
+91-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\ferje\.gradle\caches\transforms-3\3dd09a77c7ec60b8b3e274d7b1987b8f\transformed\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:27:13-69
+92            android:exported="false"
+92-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\ferje\.gradle\caches\transforms-3\3dd09a77c7ec60b8b3e274d7b1987b8f\transformed\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:28:13-37
+93            android:multiprocess="true" />
+93-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\ferje\.gradle\caches\transforms-3\3dd09a77c7ec60b8b3e274d7b1987b8f\transformed\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:29:13-40
+94    </application>
+95
+96</manifest>

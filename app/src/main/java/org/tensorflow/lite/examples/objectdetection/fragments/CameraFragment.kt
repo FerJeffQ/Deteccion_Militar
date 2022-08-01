@@ -36,6 +36,7 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+
 import org.tensorflow.lite.examples.objectdetection.ObjectDetectorHelper
 import org.tensorflow.lite.examples.objectdetection.OverlayView
 import org.tensorflow.lite.examples.objectdetection.R
@@ -71,6 +72,9 @@ class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener  {
     private var linearZoom = 0f
 
     private var contador_zoom_1 = 0
+
+    //para GPS
+    //private lateinit var fusedLocationProvider: FusedLocationProviderClient
 
 
     /** Blocking camera operations are performed using this executor */
@@ -379,7 +383,7 @@ class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener  {
             }
         }
 
-        if(area > 82000 && militar){
+        if(area > 81000 && militar){
             if(contador_zoom_1 > 20){
                 linearZoom -= 0.2f
 

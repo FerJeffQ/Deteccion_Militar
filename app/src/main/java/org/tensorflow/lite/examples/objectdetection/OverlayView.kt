@@ -16,6 +16,7 @@
 
 package org.tensorflow.lite.examples.objectdetection
 
+import android.app.Activity
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
@@ -25,6 +26,8 @@ import org.tensorflow.lite.task.vision.detector.Detection
 import java.util.*
 import kotlin.math.max
 import org.tensorflow.lite.examples.objectdetection.ObjectDetectorHelper
+
+import org.tensorflow.lite.examples.objectdetection.MainActivity
 
 class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
 
@@ -129,6 +132,8 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
 
 
 
+
+
             if (sock.isConnected) {
 
                 val msg =
@@ -211,6 +216,7 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
         private const val BOUNDING_RECT_TEXT_PADDING = 8
 
         var conectado: Boolean = false
+
     }
 
 

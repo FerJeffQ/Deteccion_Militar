@@ -16,10 +16,20 @@
 
 package org.tensorflow.lite.examples.objectdetection
 
+import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationManager
 import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.view.KeyEvent
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import org.tensorflow.lite.examples.objectdetection.databinding.ActivityMainBinding
 import org.tensorflow.lite.examples.objectdetection.fragments.CameraFragment
 
@@ -31,6 +41,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var activityMainBinding: ActivityMainBinding
 
+    private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,30 +50,113 @@ class MainActivity : AppCompatActivity() {
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(activityMainBinding.root)
 
-
+        //para gps aumentado
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
+        getCurrentLocation()
+        //para gps aumentado
     }
 
     override fun onBackPressed() {
         if (Build.VERSION.SDK_INT == Build.VERSION_CODES.Q) {
-            // Workaround for Android Q memory leak issue in IRequestFinishCallback$Stub.
-            // (https://issuetracker.google.com/issues/139738913)
             finishAfterTransition()
         } else {
             super.onBackPressed()
         }
     }
 
-//    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-//        if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
-//            println("aplasto el volumen alto")
-//
-//
-//        }
-//        if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
-//            println("aplasto el volumen bajo")
-//        }
-//        return true
-//    }
+    //aumentado para gps---------------------------------------
+    fun getCurrentLocation(){
+        if(checkPermission()){
+            if(isLocationEnabled()){
+                fusedLocationProviderClient.lastLocation.addOnCompleteListener(this){ task ->
+                    val location: Location? = task.result
+                    if(location == null){
+                        //Toast.makeText(this,"Null REcived", Toast.LENGTH_SHORT).show()
+                    }else{
+                        //Toast.makeText(this,"Get Success", Toast.LENGTH_SHORT).show()
+
+                        println("latitud: ${location.latitude}")
+                        longitud_1 = location.latitude
+                        println("longitud: ${location.longitude}")
+                        latitud_1 = location.longitude
+                    }
+
+                }
+            }else{
+                //setting open here
+                Toast.makeText(this,"Turn on location", Toast.LENGTH_SHORT).show()
+                val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+                startActivity(intent)
+            }
+        }
+        else{
+            //request permission here
+            requestPermission()
+
+        }
+    }
+
+
+    private fun isLocationEnabled(): Boolean{
+
+        val locationManager: LocationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+
+
+    }
+
+
+    private fun checkPermission(): Boolean{
+        if(ActivityCompat.checkSelfPermission(this,android.Manifest.permission.ACCESS_COARSE_LOCATION)
+            == PackageManager.PERMISSION_GRANTED &&
+            ActivityCompat.checkSelfPermission(this,android.Manifest.permission.ACCESS_FINE_LOCATION)
+            == PackageManager.PERMISSION_GRANTED){
+            return true
+        }
+        return false
+    }
+
+
+
+    private fun requestPermission() {
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(android.Manifest.permission.ACCESS_COARSE_LOCATION,android.Manifest.permission.ACCESS_FINE_LOCATION),
+            PERMISION_REQUEST_ACCESS_LOCATION
+        )
+    }
+
+    companion object{
+        private const val PERMISION_REQUEST_ACCESS_LOCATION = 100
+
+        public var longitud_1: Double = 0.0
+        public var latitud_1: Double = 0.0
+
+
+    }
+
+
+
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+            Toast.makeText(applicationContext, "Se obtuvo datos del GPS", Toast.LENGTH_SHORT).show()
+            getCurrentLocation()
+        }else{
+            Toast.makeText(applicationContext,"GPS Denegado", Toast.LENGTH_SHORT).show()
+        }
+
+
+    }
+
+        //aumentado para gps---------------------------------------
 
 
 

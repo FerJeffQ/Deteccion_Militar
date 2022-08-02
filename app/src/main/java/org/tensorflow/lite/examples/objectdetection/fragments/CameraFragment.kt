@@ -82,7 +82,8 @@ class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener  {
     var imgBase64: String=""
     var FramesToSendImage=10
     var cont=0
-    var url="http://192.168.1.11:80/image"
+    //var url="http://192.168.1.11:80/image"
+    var url = "http://192.168.4.1:80/image" //cuando raspberry es access point
     private var contador_zoom_1 = 0
 
     //para GPS

@@ -50,9 +50,7 @@ import java.util.*
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import org.json.JSONObject
-
-
-
+import org.tensorflow.lite.examples.objectdetection.MainActivity
 
 
 class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener  {
@@ -82,9 +80,10 @@ class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener  {
     var imgBase64: String=""
     var FramesToSendImage=10
     var cont=0
-    //var url="http://192.168.1.11:80/image"
-    var url = "http://192.168.4.1:80/image" //cuando raspberry es access point
+    var url="http://192.168.4.1:80/image" //http://192.168.4.1:80/image   Cuando la raspberry sea access point
     private var contador_zoom_1 = 0
+
+    private var contador_frames = 0
 
     //para GPS
     //private lateinit var fusedLocationProvider: FusedLocationProviderClient
@@ -133,6 +132,8 @@ class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener  {
 
             var  jsonParam: JSONObject = JSONObject()
             jsonParam.put("img", msg)
+            jsonParam.put("gps", MainActivity.latitud_1.toString()+","+MainActivity.longitud_1.toString())
+
 
             //Log.i("JSON", jsonParam.toString())
             var  os: DataOutputStream = DataOutputStream(conn.getOutputStream())
@@ -440,7 +441,7 @@ class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener  {
 //        }
 
 
-//
+// analizar el zoom=========================================================================
         if(area < 23000 && militar){
             if(contador_zoom_1 > 20){
                 linearZoom += 0.2f
@@ -467,7 +468,25 @@ class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener  {
             linearZoom = 0.0f
             cameraControl?.setLinearZoom(linearZoom)
         }
+
+        // aqui esto actualizando las los valores de latitud y longitud ----------------------------------
+        if(contador_frames == 20)
+        {
+            (activity as MainActivity).getCurrentLocation() //actualizar la localizacion
+
+            //AQUI ESTAN LAS VARIABLES DE LATITUD Y LONGITUD
+            println("Esta el latitud:${MainActivity.latitud_1}-----------") //ojo tipo Doble
+            println("Esta el Longitud:${MainActivity.longitud_1}----------")
+
+            contador_frames = 0
+        }
+        contador_frames+=1
+        // aqui esto actualizando las los valores de latitud y longitud ----------------------------------
     }
+// analizar el zoom =====================================================
+
+
+
 
 
     override fun onConfigurationChanged(newConfig: Configuration) {

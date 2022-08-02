@@ -27,7 +27,10 @@ import org.tensorflow.lite.task.core.BaseOptions
 import org.tensorflow.lite.task.vision.detector.Detection
 import org.tensorflow.lite.task.vision.detector.ObjectDetector
 
+import org.tensorflow.lite.examples.objectdetection.MainActivity
 import androidx.camera.lifecycle.ProcessCameraProvider
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import kotlin.math.max
 
 class ObjectDetectorHelper(
@@ -46,8 +49,13 @@ class ObjectDetectorHelper(
 
 
 
+
+
+
     init {
         setupObjectDetector()
+
+
     }
 
 
@@ -208,6 +216,12 @@ class ObjectDetectorHelper(
         var cont_No_militar :Int = 0
         var area_cuadro :Float = 0f
         val contador_de_zoom:Int = 0
+
+
+
+
+
+
         const val DELEGATE_CPU = 0
         const val DELEGATE_GPU = 1
         const val DELEGATE_NNAPI = 2

@@ -12,8 +12,7 @@ import java.net.SocketAddress
 class socketConnection {
 
     var isConnected = false
-    //var host = "192.168.1.11"
-    var host = "192.168.4.1" //cuando raspberry es access point
+    var host = "192.168.4.1"//192.168.4.1 para cuando la raspberry sea access point
     var port = 4000
     var mSocket = Socket();
     val inetAddress: InetAddress = InetAddress.getByName(host)

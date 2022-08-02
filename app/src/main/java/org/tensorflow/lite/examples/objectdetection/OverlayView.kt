@@ -16,6 +16,7 @@
 
 package org.tensorflow.lite.examples.objectdetection
 
+import android.app.Activity
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
@@ -25,6 +26,8 @@ import org.tensorflow.lite.task.vision.detector.Detection
 import java.util.*
 import kotlin.math.max
 import org.tensorflow.lite.examples.objectdetection.ObjectDetectorHelper
+
+import org.tensorflow.lite.examples.objectdetection.MainActivity
 
 class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
 
@@ -127,12 +130,27 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
             //val msg= top.toString()+","+bottom.toString()+","+left.toString()+","+right.toString()
             //enviando centro de pantalla y centro de objetivo
 
+            //println("left:"+left)
+            //println("rigth:"+right)
+            //println("top:"+top)
+            //println("bottom:"+bottom)
+
+
 
 
             if (sock.isConnected) {
 
                 val msg =
-                    midX.toString() + "," + midY.toString() + ","+ Width_image.toString() + ","+ Height_image.toString()+";"
+                    midX.toString() + "," +
+                    midY.toString() + ","+
+                    Width_image.toString() + ","+
+                    Height_image.toString()+","+
+                    result.categories[0].score.toString()+","+
+                    left.toString()+","+
+                    top.toString()+","+
+                    right.toString()+","+
+                    bottom.toString()+";"
+
                 //sock.sendData(msg)
                 sock.sendData(msg)
 
@@ -211,6 +229,7 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
         private const val BOUNDING_RECT_TEXT_PADDING = 8
 
         var conectado: Boolean = false
+
     }
 
 

@@ -1,14 +1,14 @@
 [
     {
-        "merged": "org.tensorflow.lite.examples.objectdetection.app-mergeDebugResources-31:/layout/fragment_camera.xml",
-        "source": "org.tensorflow.lite.examples.objectdetection.app-main-34:/layout/fragment_camera.xml"
+        "merged": "org.tensorflow.lite.examples.objectdetection.app-mergeDebugResources-33:/layout/fragment_camera.xml",
+        "source": "org.tensorflow.lite.examples.objectdetection.app-main-36:/layout/fragment_camera.xml"
     },
     {
-        "merged": "org.tensorflow.lite.examples.objectdetection.app-mergeDebugResources-31:/layout/activity_main.xml",
-        "source": "org.tensorflow.lite.examples.objectdetection.app-main-34:/layout/activity_main.xml"
+        "merged": "org.tensorflow.lite.examples.objectdetection.app-mergeDebugResources-33:/layout/activity_main.xml",
+        "source": "org.tensorflow.lite.examples.objectdetection.app-main-36:/layout/activity_main.xml"
     },
     {
-        "merged": "org.tensorflow.lite.examples.objectdetection.app-mergeDebugResources-31:/layout/info_bottom_sheet.xml",
-        "source": "org.tensorflow.lite.examples.objectdetection.app-main-34:/layout/info_bottom_sheet.xml"
+        "merged": "org.tensorflow.lite.examples.objectdetection.app-mergeDebugResources-33:/layout/info_bottom_sheet.xml",
+        "source": "org.tensorflow.lite.examples.objectdetection.app-main-36:/layout/info_bottom_sheet.xml"
     }
 ]

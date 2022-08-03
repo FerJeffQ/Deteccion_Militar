@@ -16,7 +16,7 @@
 
 package org.tensorflow.lite.examples.objectdetection
 
-import android.app.Activity
+
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
@@ -25,9 +25,6 @@ import androidx.core.content.ContextCompat
 import org.tensorflow.lite.task.vision.detector.Detection
 import java.util.*
 import kotlin.math.max
-import org.tensorflow.lite.examples.objectdetection.ObjectDetectorHelper
-
-import org.tensorflow.lite.examples.objectdetection.MainActivity
 
 class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
 
@@ -47,19 +44,12 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
 
     private var bounds = Rect()
     var sock = socketConnection()
-    var dataToSocket = "NO_DATA"
     var imageB64send: String = "";
-    var sendOnce=0
-
-
-    val militar_detectado: Boolean = false
-    var contador_verificacion: Int = 0
 
 
 
     init {
         initPaints()
-
     }
 
 
@@ -94,10 +84,6 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
 
         for (result in results) {
 
-
-
-
-
             val boundingBox = result.boundingBox
 
             val top = boundingBox.top * scaleFactor
@@ -127,14 +113,6 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
             canvas.drawCircle(Width_image, Height_image, 5F, pointPaint)
             // VARIABLES PARA CONTROL ===============================================
 
-            //val msg= top.toString()+","+bottom.toString()+","+left.toString()+","+right.toString()
-            //enviando centro de pantalla y centro de objetivo
-
-            //println("left:"+left)
-            //println("rigth:"+right)
-            //println("top:"+top)
-            //println("bottom:"+bottom)
-
 
 
 
@@ -163,21 +141,7 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
 
 
 
-            /*Thread(Runnable {
-            try {
 
-
-                    Log.i("enviando socket:","va a enviar")
-                    val client = Socket("192.168.1.13",21567)
-                    Log.i("enviando socket:","se conectó")
-                    client.getOutputStream().write(msg.toByteArray())
-                    Log.i("enviando socket:","envió")
-
-
-            }catch (e: Exception){
-                Log.e("socket",e.toString())
-            }
-            }).start()*/
             // Draw bounding box around detected objects
             val drawableRect = RectF(left, top, right, bottom)
             canvas.drawRect(drawableRect, boxPaint)
@@ -186,8 +150,6 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
             val drawableText =
                 result.categories[0].label + " " +
                         String.format("%.2f", result.categories[0].score)
-
-
 
 
 
@@ -216,22 +178,16 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
     ) {
         results = detectionResults
         imageB64send = imgBase64
-        // PreviewView is in FILL_START mode. So we need to scale up the bounding box to match with
-        // the size that the captured images will be displayed.
         scaleFactor = max(width * 1f / imageWidth, height * 1f / imageHeight)
         Width_image = (imageWidth/2f)*scaleFactor
         Height_image = (imageHeight/2f)*scaleFactor - 160
-
 
     }
 
     companion object {
         private const val BOUNDING_RECT_TEXT_PADDING = 8
-
         var conectado: Boolean = false
-
     }
-
 
 }
 

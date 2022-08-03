@@ -24,14 +24,12 @@ import android.location.LocationManager
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-import android.view.KeyEvent
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import org.tensorflow.lite.examples.objectdetection.databinding.ActivityMainBinding
-import org.tensorflow.lite.examples.objectdetection.fragments.CameraFragment
 
 /**
  * Main
@@ -51,10 +49,10 @@ class MainActivity : AppCompatActivity() {
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(activityMainBinding.root)
 
-        //para gps aumentado
+        //para gps aumentado---
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         getCurrentLocation()
-        //para gps aumentado
+        //para gps aumentado---
     }
 
     override fun onBackPressed() {
@@ -65,17 +63,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    //aumentado para gps---------------------------------------
+    //Obtener los permisos para GPS----
     fun getCurrentLocation(){
         if(checkPermission()){
             if(isLocationEnabled()){
                 fusedLocationProviderClient.lastLocation.addOnCompleteListener(this){ task ->
                     val location: Location? = task.result
                     if(location == null){
-                        //Toast.makeText(this,"Null REcived", Toast.LENGTH_SHORT).show()
+                        //En el caso que no se optiene la localizacion
                     }else{
-                        //Toast.makeText(this,"Get Success", Toast.LENGTH_SHORT).show()
-
+                        //Agregar la latitud y la longitud
                         println("latitud: ${location.latitude}")
                         longitud_1 = location.latitude
                         println("longitud: ${location.longitude}")
@@ -84,8 +81,7 @@ class MainActivity : AppCompatActivity() {
 
                 }
             }else{
-                //setting open here
-                Toast.makeText(this,"Turn on location", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Activar ubicación", Toast.LENGTH_SHORT).show()
                 val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
                 startActivity(intent)
             }
@@ -93,18 +89,13 @@ class MainActivity : AppCompatActivity() {
         else{
             //request permission here
             requestPermission()
-
         }
     }
 
 
     private fun isLocationEnabled(): Boolean{
-
         val locationManager: LocationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
-
-
     }
 
 
@@ -130,14 +121,9 @@ class MainActivity : AppCompatActivity() {
 
     companion object{
         private const val PERMISION_REQUEST_ACCESS_LOCATION = 100
-
-        public var longitud_1: Double = 0.0
-        public var latitud_1: Double = 0.0
-
-
+        var longitud_1: Double = 0.0
+        var latitud_1: Double = 0.0
     }
-
-
 
 
     override fun onRequestPermissionsResult(
@@ -154,11 +140,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(applicationContext,"GPS Denegado", Toast.LENGTH_SHORT).show()
         }
 
-
     }
-
-        //aumentado para gps---------------------------------------
-
-
+    //Obtener los permisos para GPS----
 
 }

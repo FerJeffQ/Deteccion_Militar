@@ -1,7 +1,6 @@
 package org.tensorflow.lite.examples.objectdetection
 
 import android.os.NetworkOnMainThreadException
-import android.system.Os.socket
 import android.util.Log
 import java.net.InetAddress
 import java.net.InetSocketAddress

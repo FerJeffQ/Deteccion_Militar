@@ -27,18 +27,10 @@ import org.tensorflow.lite.task.core.BaseOptions
 import org.tensorflow.lite.task.vision.detector.Detection
 import org.tensorflow.lite.task.vision.detector.ObjectDetector
 
-import org.tensorflow.lite.examples.objectdetection.MainActivity
-import androidx.camera.lifecycle.ProcessCameraProvider
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
-import kotlin.math.max
-
 class ObjectDetectorHelper(
     var threshold: Float = 0.5f,
     var numThreads: Int = 4,
     var maxResults: Int = 1,
-    var currentDelegate: Int = 0,
-    var currentModel: Int = 0,
     val context: Context,
     val objectDetectorListener: DetectorListener?
 ) {
@@ -47,17 +39,9 @@ class ObjectDetectorHelper(
     // will not change, a lazy val would be preferable.
     private var objectDetector: ObjectDetector? = null
 
-
-
-
-
-
     init {
         setupObjectDetector()
-
-
     }
-
 
     fun clearObjectDetector() {
         objectDetector = null
@@ -75,43 +59,16 @@ class ObjectDetectorHelper(
                 .setMaxResults(maxResults)
 
 
-
-
         // Set general detection options, including number of used threads
         val baseOptionsBuilder = BaseOptions.builder().setNumThreads(numThreads)
         baseOptionsBuilder.useNnapi()
 
-        // Use the specified hardware for running the model. Default to CPU
-//        when (currentDelegate) {
-//            DELEGATE_CPU -> {
-//                // Default
-//            }
-//            DELEGATE_GPU -> {
-//                if (CompatibilityList().isDelegateSupportedOnThisDevice) {
-//                    baseOptionsBuilder.useGpu()
-//                } else {
-//                    objectDetectorListener?.onError("GPU is not supported on this device")
-//                }
-//            }
-//            DELEGATE_NNAPI -> {
-//                baseOptionsBuilder.useNnapi()
-//            }
-//        }
 
         optionsBuilder.setBaseOptions(baseOptionsBuilder.build())
 
+        //Lectura del Modelo
         val modelName = "model_fp16.tflite"
 
-
-        
-
-//            when (currentModel) {
-//                MODEL_MOBILENETV1 -> "mobilenetv1.tflite"
-//                MODEL_EFFICIENTDETV0 -> "efficientdet-lite0.tflite"
-//                MODEL_EFFICIENTDETV1 -> "model_fp16.tflite"
-//                MODEL_EFFICIENTDETV2 -> "efficientdet-lite2.tflite"
-//                else -> "mobilenetv1.tflite"
-//            }
 
         try {
             objectDetector =
@@ -134,8 +91,6 @@ class ObjectDetectorHelper(
         var inferenceTime = SystemClock.uptimeMillis()
 
         // Create preprocessor for the image.
-        // See https://www.tensorflow.org/lite/inference_with_metadata/
-        //            lite_support#imageprocessor_architecture
         val imageProcessor =
             ImageProcessor.Builder()
                 .add(Rot90Op(-imageRotation / 90))
@@ -147,14 +102,12 @@ class ObjectDetectorHelper(
         val results = objectDetector?.detect(tensorImage)
 
 
-        //println("El area es :${area_cuadro}")
 
-        //Identificar si hay un militar --------------------------------------------
+
+        //Analizamos el area del Militar
         if (results != null) {
-            //verifiquemos el area de la deteccion
-
-
             for(resultado in results){
+
                 val boundingBox = resultado.boundingBox
 
                 val top = boundingBox.top
@@ -166,11 +119,11 @@ class ObjectDetectorHelper(
                 val y = bottom - top
 
                 area_cuadro = x*y
+
              }
 
             if(results.size > 0){
                 if(cont_militar  > 5){
-
                     hay_militar = true //hay militar
                     cont_militar = 0
                     cont_No_militar = 0
@@ -189,14 +142,12 @@ class ObjectDetectorHelper(
 
         inferenceTime = SystemClock.uptimeMillis() - inferenceTime
 
-
+        //Envio de los datos
         objectDetectorListener?.onResults(
             results,
             inferenceTime,
             tensorImage.height,
             tensorImage.width)
-
-
 
     }
 
@@ -215,19 +166,5 @@ class ObjectDetectorHelper(
         var cont_militar :Int = 0
         var cont_No_militar :Int = 0
         var area_cuadro :Float = 0f
-        val contador_de_zoom:Int = 0
-
-
-
-
-
-
-        const val DELEGATE_CPU = 0
-        const val DELEGATE_GPU = 1
-        const val DELEGATE_NNAPI = 2
-        const val MODEL_MOBILENETV1 = 0
-        const val MODEL_EFFICIENTDETV0 = 1
-        const val MODEL_EFFICIENTDETV1 = 2
-        const val MODEL_EFFICIENTDETV2 = 3
     }
 }
